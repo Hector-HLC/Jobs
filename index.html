@@ -32,7 +32,17 @@ Link is <A HREF=https://www.megabank.com.tw>HERE</A>
 <div class="city">
 <h2>數位存款</h2>
 <p>提供比定存更優惠的利率。</p>
-  <p>現有其他活動優惠中，<A HREF=https://www.megabank.com.tw/event/megalite > 請按此</A>。</p>
+  <p>現有其他活動優惠中，<A HREF=https://www.megabank.com.tw/event/megalite > 請按此
+    <script>
+      $("#call_to_action").click(function(){
+        gtag('event','call_to_action',{
+          'event_category':'數位存款',
+          'event_action':'點擊',
+          'event_label':'megalite',
+          'value':1818
+        });
+      });
+    </script></A>。</p>
 </div>
 
 <div class="city">
