@@ -93,12 +93,9 @@ function dragended(d) {
 }
 
 </script>
+<svg>width = '100' length = '100' id = 'svg1'</svg>
 <script>
-<p>
-this page is only for my coding test, the original right all belong to the original author, https://bl.ocks.org/mbostock/4062045#index.html</p>
-
-d3.select('p').style({
-  'color': 'red'
-});
+  var span = d3.select("svg1").select("h3").select("span");
+  span.text("this page is only for my coding test, the original right all belong to the original author, https://bl.ocks.org/mbostock/4062045#index.html").style("font-size", "24px");
 
 </script>
