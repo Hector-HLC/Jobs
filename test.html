@@ -13,7 +13,8 @@
 }
 
 </style>
-
+<head></head>
+<body>
 <svg width="960" height="600"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
@@ -95,7 +96,8 @@ function dragended(d) {
 </script>
 <svg>width = '100' length = '100' id = 'svg1'</svg>
 <script>
-  var span = d3.select("svg1").select("h3").select("span");
+  var span = d3.select("body").select("h3").select("span");
   span.text("this page is only for my coding test, the original right all belong to the original author, https://bl.ocks.org/mbostock/4062045#index.html").style("font-size", "24px");
 
 </script>
+</body>
