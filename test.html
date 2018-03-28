@@ -38,8 +38,8 @@ d3.json("testingNetwork.json", function(error, graph) {
     .enter().append("line")
       .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
   
-  //link.append('title')
-  //  .text(function(d) { return 'value1: ' + d.value1 + "\n" + 'value2: ' + d.value2 ;});  //浮動說明
+  link.append('title')
+    .text(function(d) { return 'value1: ' + d.value1 + "\n" + 'value2: ' + d.value2 ;});  //浮動說明
   
   var node = svg.append("g")
       .attr("class", "nodes")
