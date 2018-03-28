@@ -1,4 +1,216 @@
 {
-  "nodes":[{"id":"John","group":"C","title":"doctor","valueNode":5},{"id":"Jason","group":"C","title":"doctor","valueNode":4},{"id":"Jack","group":"A","title":"doctor","valueNode":3},{"id":"Johnnon","group":"D","title":"clerk","valueNode":7},{"id":"Joshua","group":"E","title":"doctor","valueNode":3},{"id":"Jane","group":"D","title":"police","valueNode":5},{"id":"David","group":"E","title":"doctor","valueNode":2},{"id":"Mary","group":"E","title":"police","valueNode":3},{"id":"Michael","group":"A","title":"doctor","valueNode":10},{"id":"Steven","group":"C","title":"doctor","valueNode":10}] ,
-  "links":[{"source":"Steven","target":"David","value1":3,"value2":2},{"source":"Johnnon","target":"Johnnon","value1":2,"value2":0},{"source":"Jason","target":"Johnnon","value1":29,"value2":3},{"source":"John","target":"Jack","value1":7,"value2":0},{"source":"Jack","target":"Jane","value1":2,"value2":29},{"source":"Michael","target":"Jane","value1":11,"value2":33},{"source":"Jason","target":"Jane","value1":7,"value2":10},{"source":"John","target":"Jack","value1":7,"value2":12},{"source":"David","target":"Joshua","value1":2,"value2":5},{"source":"Johnnon","target":"John","value1":0,"value2":4},{"source":"John","target":"Jason","value1":12,"value2":11},{"source":"Jason","target":"Steven","value1":6,"value2":6},{"source":"Joshua","target":"John","value1":1,"value2":7},{"source":"Jack","target":"Jason","value1":3,"value2":0},{"source":"Steven","target":"Michael","value1":6,"value2":25},{"source":"Mary","target":"Michael","value1":8,"value2":35},{"source":"John","target":"Jane","value1":11,"value2":27},{"source":"John","target":"Jane","value1":4,"value2":4},{"source":"Michael","target":"Steven","value1":4,"value2":16},{"source":"John","target":"Mary","value1":10,"value2":3},{"source":"Jason","target":"John","value1":4,"value2":19},{"source":"David","target":"Steven","value1":11,"value2":1},{"source":"Jack","target":"Steven","value1":18,"value2":23},{"source":"Jack","target":"Jason","value1":9,"value2":6},{"source":"Johnnon","target":"Joshua","value1":14,"value2":17}]
+  "nodes":[
+  {
+    "id": "John",
+    "group": "C",
+    "title": "doctor",
+    "valueNode": 5
+  },
+  {
+    "id": "Jason",
+    "group": "C",
+    "title": "doctor",
+    "valueNode": 4
+  },
+  {
+    "id": "Jack",
+    "group": "A",
+    "title": "doctor",
+    "valueNode": 3
+  },
+  {
+    "id": "Johnnon",
+    "group": "D",
+    "title": "clerk",
+    "valueNode": 7
+  },
+  {
+    "id": "Joshua",
+    "group": "E",
+    "title": "doctor",
+    "valueNode": 3
+  },
+  {
+    "id": "Jane",
+    "group": "D",
+    "title": "police",
+    "valueNode": 5
+  },
+  {
+    "id": "David",
+    "group": "E",
+    "title": "doctor",
+    "valueNode": 2
+  },
+  {
+    "id": "Mary",
+    "group": "E",
+    "title": "police",
+    "valueNode": 3
+  },
+  {
+    "id": "Michael",
+    "group": "A",
+    "title": "doctor",
+    "valueNode": 10
+  },
+  {
+    "id": "Steven",
+    "group": "C",
+    "title": "doctor",
+    "valueNode": 10
+  }
+],
+  "links":[
+  {
+    "source": "Steven",
+    "target": "David",
+    "value1": 3,
+    "value2": 2
+  },
+  {
+    "source": "Johnnon",
+    "target": "Johnnon",
+    "value1": 2,
+    "value2": 0
+  },
+  {
+    "source": "Jason",
+    "target": "Johnnon",
+    "value1": 29,
+    "value2": 3
+  },
+  {
+    "source": "John",
+    "target": "Jack",
+    "value1": 7,
+    "value2": 0
+  },
+  {
+    "source": "Jack",
+    "target": "Jane",
+    "value1": 2,
+    "value2": 29
+  },
+  {
+    "source": "Michael",
+    "target": "Jane",
+    "value1": 11,
+    "value2": 33
+  },
+  {
+    "source": "Jason",
+    "target": "Jane",
+    "value1": 7,
+    "value2": 10
+  },
+  {
+    "source": "John",
+    "target": "Jack",
+    "value1": 7,
+    "value2": 12
+  },
+  {
+    "source": "David",
+    "target": "Joshua",
+    "value1": 2,
+    "value2": 5
+  },
+  {
+    "source": "Johnnon",
+    "target": "John",
+    "value1": 0,
+    "value2": 4
+  },
+  {
+    "source": "John",
+    "target": "Jason",
+    "value1": 12,
+    "value2": 11
+  },
+  {
+    "source": "Jason",
+    "target": "Steven",
+    "value1": 6,
+    "value2": 6
+  },
+  {
+    "source": "Joshua",
+    "target": "John",
+    "value1": 1,
+    "value2": 7
+  },
+  {
+    "source": "Jack",
+    "target": "Jason",
+    "value1": 3,
+    "value2": 0
+  },
+  {
+    "source": "Steven",
+    "target": "Michael",
+    "value1": 6,
+    "value2": 25
+  },
+  {
+    "source": "Mary",
+    "target": "Michael",
+    "value1": 8,
+    "value2": 35
+  },
+  {
+    "source": "John",
+    "target": "Jane",
+    "value1": 11,
+    "value2": 27
+  },
+  {
+    "source": "John",
+    "target": "Jane",
+    "value1": 4,
+    "value2": 4
+  },
+  {
+    "source": "Michael",
+    "target": "Steven",
+    "value1": 4,
+    "value2": 16
+  },
+  {
+    "source": "John",
+    "target": "Mary",
+    "value1": 10,
+    "value2": 3
+  },
+  {
+    "source": "Jason",
+    "target": "John",
+    "value1": 4,
+    "value2": 19
+  },
+  {
+    "source": "David",
+    "target": "Steven",
+    "value1": 11,
+    "value2": 1
+  },
+  {
+    "source": "Jack",
+    "target": "Steven",
+    "value1": 18,
+    "value2": 23
+  },
+  {
+    "source": "Jack",
+    "target": "Jason",
+    "value1": 9,
+    "value2": 6
+  },
+  {
+    "source": "Johnnon",
+    "target": "Joshua",
+    "value1": 14,
+    "value2": 17
+  }
+]
 }
