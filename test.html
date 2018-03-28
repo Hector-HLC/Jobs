@@ -9,7 +9,8 @@
   
 .link line:hover {
   stroke-opacity: .5;
-}
+}  
+ // yet developed
 
 .nodes circle {
   stroke: #fff;
@@ -43,7 +44,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
   
   link.append('title')
-    .text(function(d) { return d.source.name + "->" + d.target.name + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
+    .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
   var node = svg.append("g")
       .attr("class", "nodes")
@@ -96,5 +97,11 @@ function dragended(d) {
   d.fx = d3.event.x;
   d.fy = d3.event.y;
 }
+
+function zoomed(d) {
+  transform = d3.event.transform;
+  render();
+}
+
 
 </script>
