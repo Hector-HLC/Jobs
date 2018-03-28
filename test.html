@@ -18,20 +18,15 @@
 }
 
 </style>
-<div id="canvas-svg"></div>
-#canvas-svg{
-}
-var svg = d3.select("#canvas-svg").append("svg")
-  .call(d3.behavior.zoom().on("zoom",zoom))
-  .append("g");
 
-//<svg width="960" height="600"></svg>
+<svg width="960" height="600"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-//var svg = d3.select("svg"),
- //   width = +svg.attr("width"),
- //   height = +svg.attr("height");
+var svg = d3.select("svg").
+            .call(d3.behavior.zoom().on("zoom", zoom)),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
