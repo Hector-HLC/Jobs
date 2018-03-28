@@ -36,7 +36,7 @@ var simulation = d3.forceSimulation()
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
 
-  var link = svg.append("g")
+  var link = svg.append("g")    // "g" = "svg"
       .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
@@ -46,7 +46,7 @@ d3.json("testingNetwork.json", function(error, graph) {
   link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
-  var node = svg.append("svg")  //
+  var node = svg.append("svg")  // "g" = "svg"
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
@@ -61,6 +61,10 @@ d3.json("testingNetwork.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.valueNode + "Time/Week"; });  // 浮動說明
   
+svg
+  .call(d3.behavior.zoom().on("zoom", zoom))
+  .append("g")
+
   simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
