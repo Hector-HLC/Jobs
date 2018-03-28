@@ -15,6 +15,7 @@
   stroke-width: 1.5px;
 }
 </style>
+
 <svg width="960" height="600"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
@@ -52,13 +53,11 @@ d3.json("testingNetwork.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.valueNode + "Time/Week"; });  // 浮動說明
   
-svg
-  .call(d3.behavior.zoom().on("zoom", zoom))
-  .append("g")
-  simulation
+
+simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
-  simulation.force("link")
+simulation.force("link")
       .links(graph.links);
   function ticked() {
     link
