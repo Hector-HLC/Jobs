@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
-
+  
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;
@@ -47,7 +47,7 @@ d3.json("testingNetwork.json", function(error, graph) {
   link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
-  var node = svg.append("svg")  // "g" = "svg"
+  var node = svg.append("g")  // "g" = "svg"
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
