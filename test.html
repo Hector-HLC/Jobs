@@ -51,8 +51,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
-          .on("end", dragended))
-      .attr("id", function(d) {return d.id;});
+          .on("end", dragended));
 
   node.append("title")
       .text(function(d) { return d.id + "\n" + d.title + "\n" + d.valueNode; });  // 浮動說明
