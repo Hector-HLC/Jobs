@@ -107,6 +107,9 @@ function dragended(d) {
   d.fy = d3.event.y;
 }
 
+function zoomed() {
+  container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+}
 
 
 
