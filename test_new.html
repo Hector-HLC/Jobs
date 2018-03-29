@@ -34,8 +34,6 @@ var zoom = d3.zoom()
 	.scaleExtent([1,12])
 	.on("zoom", zoomed);
 	
-svg
-  .call(d3.zoomed().scaleExtent([1 / 2, 8]).on("zoom", zoomed));
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
