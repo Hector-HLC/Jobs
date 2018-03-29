@@ -15,6 +15,7 @@
 </style>
 <svg width="960" height="600"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-zoom.v1.min.js"></script>
 <script>
 
 var svg = d3.select("svg"),
@@ -30,7 +31,7 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2));
 
 svg
-    .call(d3.zoomed().scaleExtent([1 / 2, 8]).on("zoom", zoomed));
+    selection.call(d3.zoomed().scaleExtent([1 / 2, 8]).on("zoom", zoomed));
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
@@ -100,20 +101,8 @@ function dragended(d) {
   d.fy = d3.event.y;
 }
 
-function zoomed() {
-  transform = d3.event.transform;
-  render();
-}
 
-function render() {
-  context.save();
-  context.clearRect(0, 0, width, height);
-  context.beginPath();
-  context.translate(transform.x, transform.y);
-  context.scale(transform.k, transform.k);
-  points.forEach(drawPoint);
-  context.fill();
-  context.restore();
-}
+
+
 
 </script>
