@@ -36,7 +36,7 @@ d3.json("testingNetwork.json", function(error, graph) {
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
   
     link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
