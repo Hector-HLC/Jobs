@@ -18,10 +18,9 @@
 <script src="https://d3js.org/d3-zoom.v1.min.js"></script>
 <script>
 
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
+var width = +svg.attr("width"),
     height = +svg.attr("height"),
-	transform = d3.zoomIdentity;
+    transform = d3.zoomIdentity;
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -30,8 +29,8 @@ var simulation = d3.forceSimulation()
     .force("charge", d3.forceManyBody())
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-svg
-    selection.call(d3.zoomed().scaleExtent([1 / 2, 8]).on("zoom", zoomed));
+var svg = d3.select("svg")
+            .call(d3.zoomed().scaleExtent([1 / 2, 8]).on("zoom", zoomed));
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
