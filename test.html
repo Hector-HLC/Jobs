@@ -47,7 +47,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .attr("r", function(d) { return d.valueNode*6 ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
-          .on("start", dragstarted)
+          .on("start", dragstarted).style({'background':'red'})
           .on("drag", dragged)
           .on("end", dragended));
   node.append("title")
@@ -74,7 +74,6 @@ function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
   d.fx = d.x;
   d.fy = d.y;
-  d.style({'background':'red'});
 } 
 function dragged(d) {
   d.fx = d3.event.x;
