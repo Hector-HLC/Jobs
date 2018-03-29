@@ -47,7 +47,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .attr("r", function(d) { return d.valueNode*6 ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
-          .on("start", dragstarted).style({'background':'red'})
+          .on("start", dragstarted)
           .on("drag", dragged)
           .on("end", dragended));
   node.append("title")
@@ -67,7 +67,8 @@ simulation.force("link")
         .attr("y2", function(d) { return d.target.y; });
     node
         .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
+        .attr("cy", function(d) { return d.y; })
+        .style({ 'background':'red'});
   }
 });
 function dragstarted(d) {
