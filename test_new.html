@@ -23,7 +23,12 @@
 <body>
 <script>
 
-var svg = d3.select("svg"),
+var zoom = d3.zoom()
+	.scaleExtent([1,12])
+	.on("zoom", zoomed);
+
+
+var svg = d3.select("svg").call(zoom),
 	width = +svg.attr("width"),
     height = +svg.attr("height"),
 	transform = d3.zoomIdentity;
@@ -35,12 +40,8 @@ var simulation = d3.forceSimulation()
     .force("charge", d3.forceManyBody())
     .force("center", d3.forceCenter(width / 2, height / 2));
 
-var zoom = d3.zoom()
-	.scaleExtent([1,12])
-	.on("zoom", zoomed);
-	
-svg
-  .call(d3.zoomed().scaleExtent([1 / 2, 8]).on("zoom", zoomed));
+
+
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
@@ -111,6 +112,10 @@ function dragended(d) {
   d.fx = d3.event.x;
   d.fy = d3.event.y;
 }
+
+ function zoomed() {
+   container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+ }
 
 </script>
 
