@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <meta charset="utf-8">
+<head>
 <style>
 
 .links line {
@@ -15,13 +16,19 @@
 
 </style>
 
+<!-- 欠缺自動化公司 -->
+<div> <h2> Money Flow</h2></div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
+</head>
+<body>
 
 
-<!-- 欠缺自動化公司 -->
-<div> <h2> Money Flow</h2></div>
+
+
+</body>
+
 <svg width="960" height="600"></svg>
 
 <script>
@@ -47,19 +54,18 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d){ return d.valueNode*10 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 
-var frame = svg.append("defs")
-            .append("rect")
-            .attr("width", width)
-	    .attr("height", height);
+svg.append("defs").append("rect")
+      .attr("width", width)
+	  .attr("height", height)
+	.append("g")
+	  .call(zoom);
 
-var container =	 frame.append("g")
-		  .call(zoom);
 
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
 
-  var link = container.append("g")
+  var link = svg.append("g")
       .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
@@ -70,7 +76,7 @@ d3.json("testingNetwork.json", function(error, graph) {
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
 
-  var node = container.append("g")
+  var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
