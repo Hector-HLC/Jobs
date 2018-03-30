@@ -27,9 +27,6 @@
 <script>
 
 var zoom = d3.zoom()
-    .scaleExtent([1,12])
-    .translateExtent([[0, 0], [width, height]])
-    .extent([[0, 0], [width, height]])
     .on("zoom", zoomed);  //設定d3.zoom
 	
 var margin = {top: -5, right: -5, bottom: -5, left: -5},
