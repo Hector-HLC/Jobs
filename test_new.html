@@ -17,7 +17,7 @@
 
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-
+<script src="https://d3js.org/d3-zoom.v1.min.js"></script>
 
 
 <!-- 欠缺自動化公司 -->
@@ -45,7 +45,6 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
 var svg = d3.select("svg").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")
     .call(zoom);
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
@@ -131,8 +130,8 @@ function dragended(d) {
 }
 
 function zoomed(d) {
-    //d.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-   d.attr("transform",d3.event.transform)
+   d
+   .attr("transform",d3.event.transform);
  }
 
 </script>
