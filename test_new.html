@@ -129,8 +129,8 @@ function dragended(d) {
   d.fy = d3.event.y;
 }
 
-function zoomed(d) {
-   d
+function zoomed() {
+   d3.select("svg").select("g")
    .attr("transform",d3.event.transform);
  }
 
