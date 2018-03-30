@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="utf-8">
 <style>
 
@@ -19,15 +18,14 @@
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/d3-zoom.v1.min.js"></script>
-	<title> This is testing network. </title>
+
 	
-</head>
-<body>
+
 <!-- 欠缺自動化公司 -->
 <div> <h2> Money Flow</h2></div>
 <svg width="960" height="600"></svg>
 <script>
-
+var x,y,s
 var zoom = d3.zoom()
     .scaleExtent([1,12])
     .translateExtent([[0, 0], [width, height]])
@@ -59,7 +57,7 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(12);
 
-var container = svg.append('g');
+var container =	 svg.append("g");
 
 
 	
@@ -134,11 +132,13 @@ function dragended(d) {
 }
 
 function zoomed() {
-   //container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
-   container.attr('transform',d3.event.transform)
+    x = d3.event.translate[0];
+    y = d3.event.translate[1];
+    s = d3.event.scale;
+    container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+   //container.attr('transform',d3.event.transform)
  }
 
 </script>
 
-</body>
-</html>
+
