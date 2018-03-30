@@ -57,14 +57,15 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d){ return d.valueNode*6 ;}));      //數值越大，差距越大（可以
 
-var container =	 svg.append("g");
+var container =	 svg.append("g")
+  .attr("transform","translate(" + margin.left + "," + margin.top + ")");
 
 
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
 
-  var link = svg.append("g")
+  var link = container.append("g")
       .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
@@ -75,7 +76,7 @@ d3.json("testingNetwork.json", function(error, graph) {
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
 
-  var node = svg.append("g")
+  var node = container.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
@@ -132,9 +133,6 @@ function dragended(d) {
 }
 
 function zoomed() {
-    x = d3.event.translate[0];
-    y = d3.event.translate[1];
-    s = d3.event.scale;
     container.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
    //container.attr('transform',d3.event.transform)
  }
