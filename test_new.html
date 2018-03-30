@@ -133,7 +133,7 @@ function dragended(d) {
 }
 
 function zoomed() {
-   d3.select("rect")
+   d3.selectAll("node")
    .attr("transform",d3.event.transform);
  }
 
