@@ -34,15 +34,10 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
     height = 600 - margin.top - margin.bottom;
 
 
-//var svg = d3.select("svg").call(zoom)	,
-	//width = +svg.attr("width"),
-    //height = +svg.attr("height"),
-	//transform = d3.zoomIdentity;
 	
-var svg = d3.select("svg").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .call(zoom);
+var svg = d3.select("svg")
+    .attr("width", width )
+    .attr("height", height );
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 	
@@ -52,8 +47,13 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d){ return d.valueNode*10 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 
-var container =	 svg.append("g");
+svg.append("defs")
+   .append("rect")
+     .attr("width", width)
+	 .attr("height", height);
 
+var container =	 svg.append("g")
+					.call(zoom);
 
 	
 d3.json("testingNetwork.json", function(error, graph) {
