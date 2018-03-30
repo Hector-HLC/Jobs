@@ -28,10 +28,10 @@ document.write(text)
 <script>
 
 var zoom = d3.zoom()
-	.scaleExtent([1,12])
-	.translateExtent([[0, 0], [width, height]])
+    .scaleExtent([1,12])
+    .translateExtent([[0, 0], [width, height]])
     .extent([[0, 0], [width, height]])
-	.on("zoom", zoomed);  //設定d3.zoom
+    .on("zoom", zoomed);  //設定d3.zoom
 	
 var margin = {top: -5, right: -5, bottom: -5, left: -5},
     width = 960 - margin.left - margin.right,
@@ -44,9 +44,9 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
 	//transform = d3.zoomIdentity;
 	
 var svg = d3.select("svg").append("svg")
-	.attr("width", width + margin.left + margin.right)
+    .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
- .append("g")
+    .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.right + ")")
     .call(zoom);
 
@@ -55,7 +55,9 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2));
+    .force("center", d3.forceCenter(width / 2, height / 2))
+    .force('collision', d3.forceCollide().radius(function(d) {
+		return d.radius}));
 
 var container = svg.append('g');
 
