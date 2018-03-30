@@ -23,8 +23,8 @@
 	
 </head>
 <body>
-// 欠缺自動化公司
-<div> <h1> Money Flow</h1></div>
+<!-欠缺自動化公司 -->
+<div> <h2> Money Flow</h2></div>
 <svg width="960" height="600"></svg>
 <script>
 
@@ -56,7 +56,7 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2))
+    //.force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d) {
 		return d.radius}));
 
