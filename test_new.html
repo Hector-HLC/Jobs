@@ -47,13 +47,13 @@ var simulation = d3.forceSimulation()
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d){ return d.valueNode*10 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 
-svg.append("defs")
-   .append("rect")
-     .attr("width", width)
-	 .attr("height", height);
+var frame = svg.append("defs")
+            .append("rect")
+            .attr("width", width)
+	    .attr("height", height);
 
-var container =	 svg.append("g")
-					.call(zoom);
+var container =	 frame.append("g")
+		  .call(zoom);
 
 	
 d3.json("testingNetwork.json", function(error, graph) {
