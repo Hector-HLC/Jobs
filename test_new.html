@@ -91,13 +91,13 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  
 
   node.append("title")
-      .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.valueNode + "Time/Week"; });  // 浮動說明
-		.attr("font-size","24px")
+      .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.valueNode + "Time/Week"; })  // 浮動說明
+		.attr("font-size","24px");
 		
   node.append("text")
 	  .text(function(d){ return d.id;})
 		.attr("font-size","12px")
-		.attr("font-family","sans-serif")
+		.attr("font-family","sans-serif");
   
   simulation
       .nodes(graph.nodes)
