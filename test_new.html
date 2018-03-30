@@ -134,7 +134,7 @@ function dragended(d) {
 }
 
 function zoomed() {
-   d3.select("svg").select("g")
+   d3.select("svg").selectAll("g")
    .attr("transform",d3.event.transform);
  }
 
