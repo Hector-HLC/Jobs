@@ -118,7 +118,8 @@ d3.json("testingNetwork.json", function(error, graph) {
         .attr("cy", function(d) { return d.y; });
   }
   
-
+svg.call(zoom);
+	
 });
 
 function dragstarted(d) {
