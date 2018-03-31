@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <meta charset="utf-8">
+<head>
 <style>
 
 .links line {
@@ -15,14 +16,19 @@
 
 </style>
 
+<!-- 欠缺自動化公司 -->
+<div> <h2 style="font-size:200%;text-align:center"> Money Flow</h2></div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
+</head>
+<body>
+<defs width="960" height="600"></defs>
 
 
-<!-- 欠缺自動化公司 -->
-<div> <h2> Money Flow</h2></div>
-<svg width="960" height="600"></svg>
+</body>
+
+
 
 <script>
 
@@ -33,33 +39,30 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
     width = 960 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
-
-//var svg = d3.select("svg").call(zoom)	,
-	//width = +svg.attr("width"),
-    //height = +svg.attr("height"),
-	//transform = d3.zoomIdentity;
+var defs = d3.select("defs")
+			.attr("width", width)
+	        .attr("height", height)
 	
-var svg = d3.select("svg").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .call(zoom);
+var svg = defs.append("svg")
+                .attr("width", width )
+                .attr("height", height )
+	          .append("g")
+	            .call(zoom);
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 	
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())       // 負數會使節點互斥
+    .force("charge", d3.forceManyBody().strength(-1))       // 負數會使節點互斥
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(function(d){ return d.valueNode*10 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
-
-var container =	 svg.append("g");
+    .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*3 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 
 
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
 
-  var link = container.append("g")
+  var link = svg.append("g")
       .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
@@ -70,12 +73,12 @@ d3.json("testingNetwork.json", function(error, graph) {
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
 
-  var node = container.append("g")
+  var node = svg.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
     .data(graph.nodes)
     .enter().append("circle")
-      .attr("r", function(d) { return d.valueNode*6 ;})   //the radius
+      .attr("r", function(d) { return d.sizeNode ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
       .call(d3.drag()
           .on("start", dragstarted)
@@ -85,8 +88,16 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  
 
   node.append("title")
-      .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.valueNode + "Time/Week"; });  // 浮動說明
-   
+      .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
+		.attr("font-size","36px");
+		
+  node.append("text")
+	  .text(function(d){ return d.id;})
+		.attr("font-size","12px")
+		.attr("font-family","sans-serif")
+	  	.attr("x", function(d) { return d.cx ;} )
+		.attr("y", function(d) { return d.cy ;} );
+  
   simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
@@ -106,7 +117,7 @@ d3.json("testingNetwork.json", function(error, graph) {
         .attr("cy", function(d) { return d.y; });
   }
   
-  svg.call(zoom)
+svg.call(zoom)
 });
 
 function dragstarted(d) {
@@ -127,7 +138,7 @@ function dragended(d) {
 }
 
 function zoomed() {
-   d3.select("svg")
+   d3.select("defs").select("svg")
    .attr("transform",d3.event.transform);
  }
 
