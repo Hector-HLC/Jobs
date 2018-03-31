@@ -11,6 +11,11 @@
   stroke-opacity: 0.6;
 }
 
+
+.links.O{
+  stroke-dasharry:"10, 5 1"
+}
+
 .nodes circle {
   stroke: #fff;
   stroke-width: 1.5px;
@@ -73,13 +78,14 @@ d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
 
   var link = container.append("g")
-      .attr("class", "links")
+      .attr("class", function(d) { return "links " + d.type1; })
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
       .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
-	  .style("stroke", linkColour);
-  
+	  //.style("stroke", linkColour);  //可透過此行控制不同交易類型links顏色
+
+	  
     link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
