@@ -5,32 +5,25 @@
 <!-- 前面有加上. 需要用.attr("class","")呼叫 -->
 	<title> This is testing of network  </title>
 <style>
-
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;
 }
-
-
 .links.O{
   stroke-dasharry:"10, 5 1"
 }
-
 .nodes circle {
   stroke: #fff;
   stroke-width: 1.5px;
 }
-
 .arrow{
   stroke: #999;
 }
-
 text {
   font: 10px sans-serif;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
 }
-
 </style>
 
 
@@ -49,19 +42,16 @@ text {
 
 
 <script>
-
 var zoom = d3.zoom()
     .on("zoom", zoomed);  //設定d3.zoom
 	
 var margin = {top: -5, right: -5, bottom: -5, left: -5},
     width = 960 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
-
 	
 var svg = d3.select("svg")
                 .attr("width", width )
                 .attr("height", height );
-
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 	
 var simulation = d3.forceSimulation()
@@ -69,28 +59,23 @@ var simulation = d3.forceSimulation()
     .force("charge", d3.forceManyBody().strength(-1))       // 負數會使節點互斥
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*3 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
-
 var container = svg.append("g")
      .call(zoom);
-
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
-
   var link = container.append("g")
       .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
       .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
-	  .attr('marker-end','url(#arrowhead)');
+	  .style("stroke-dasharry", linkDash);
 	  //.style("stroke", linkColour);  //可透過此行控制不同交易類型links顏色
-
 	  
     link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   
-
   var node = container.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
@@ -103,28 +88,21 @@ d3.json("testingNetwork.json", function(error, graph) {
           .on("drag", dragged)
           .on("end", dragended));
 	  
-
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
 		.attr("font-size","36px");
-
-
-
   
   simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
-
   simulation.force("link")
       .links(graph.links);
-
   function ticked() {
     link
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
         .attr("y2", function(d) { return d.target.y; });
-
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
@@ -134,7 +112,6 @@ d3.json("testingNetwork.json", function(error, graph) {
   
 svg.call(zoom)
 });
-
 function linkColour(d){
   if (d.type1 == "I"){
      return "green";
@@ -143,28 +120,28 @@ function linkColour(d){
   }
 }
 
+function linkDash(d){
+  if (d.type1 == "O"){
+   return "10, 5 1";
+  }
+}
+
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
   d.fx = d.x;
   d.fy = d.y;
 }
-
 function dragged(d) {
   d.fx = d3.event.x;
   d.fy = d3.event.y;
 }
-
 function dragended(d) {
   if (!d3.event.active) simulation.alphaTarget(0);
   d.fx = d3.event.x;
   d.fy = d3.event.y;
 }
-
 function zoomed() {
    d3.select("svg").select("g")
    .attr("transform",d3.event.transform);
  }
-
 </script>
-
-
