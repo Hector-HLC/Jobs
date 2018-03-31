@@ -14,6 +14,16 @@
   stroke-width: 1.5px;
 }
 
+.arrow{
+  stroke: #999;
+}
+
+.text {
+  font: 10px sans-serif;
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+}
+
 </style>
 
 <!-- 欠缺自動化公司 -->
@@ -82,18 +92,19 @@ d3.json("testingNetwork.json", function(error, graph) {
           .on("drag", dragged)
           .on("end", dragended));
 	  
-	  
 
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
 		.attr("font-size","36px");
-		
-  node.append("text")
-	  .text(function(d){ return d.id;})
-		.attr("font-size","12px")
-		.attr("font-family","sans-serif")
-	  	.attr("x", function(d) { return d.cx ;} )
-		.attr("y", function(d) { return d.cy ;} );
+
+  var nodeText = container.append("g")
+       .selectAll("text")
+       .data(graph.nodes)
+       .enter().append("text")
+        .attr("x",8)
+        .attr("y", ".31em")
+        .text(function(d) {return d.id ;});		
+
   
   simulation
       .nodes(graph.nodes)
