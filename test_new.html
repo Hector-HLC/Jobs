@@ -23,7 +23,7 @@
 
 </head>
 <body>
-
+<defs width="960" height="600"></defs>
 <svg width="960" height="600"></svg>
 
 
@@ -40,25 +40,23 @@ var margin = {top: -5, right: -5, bottom: -5, left: -5},
     width = 960 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
-
+var defs = d3.select("defs")
+			.attr("width", width)
+	        .attr("height", height)
 	
-var svg = d3.select("svg")
-    .attr("width", width )
-    .attr("height", height );
+var svg = defs.append("svg")
+                .attr("width", width )
+                .attr("height", height )
+	          .append("g")
+	            .call(zoom);
 
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 	
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())       // 負數會使節點互斥
+    .force("charge", d3.forceManyBody().strength(-1)       // 負數會使節點互斥
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
-
-svg.append("defs").append("rect")
-      .attr("width", width)
-	  .attr("height", height)
-	.append("g")
-	  .call(zoom);
+    .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*3 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 
 
 	
@@ -141,7 +139,7 @@ function dragended(d) {
 }
 
 function zoomed() {
-   d3.select("svg")
+   d3.select("defs").select("svg")
    .attr("transform",d3.event.transform);
  }
 
