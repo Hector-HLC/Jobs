@@ -101,9 +101,11 @@ d3.json("testingNetwork.json", function(error, graph) {
        .selectAll("text")
        .data(graph.nodes)
        .enter().append("text")
-        .attr("x",8)
-        .attr("y", ".31em")
-        .text(function(d) {return d.id ;});		
+        .text(function(d) {return d.id ;})
+		.call(d3.drag()
+          .on("start", dragstarted)
+          .on("drag", dragged)
+          .on("end", dragended));	
 
   
   simulation
