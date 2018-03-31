@@ -2,8 +2,10 @@
 
 <meta charset="utf-8">
 <head>
+<!-- 前面有加上. 需要用.attr("class","")呼叫 -->
+	<title> This is testing of network  </title>
 <style>
-// 	前面有加上. 需要用.attr("class","")呼叫
+
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;
@@ -26,13 +28,14 @@ text {
 
 </style>
 
-<!-- 欠缺自動化公司 -->
-<div> <h2 style="font-size:200%;text-align:center"> Money Flow</h2></div>
+
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
 </head>
 <body>
+<!-- 欠缺自動化公司 -->
+<div> <h2 style="font-size:200%;text-align:center"> Money Flow</h2></div>
 <svg width="960" height="600"></svg>
 
 
@@ -127,8 +130,8 @@ d3.json("testingNetwork.json", function(error, graph) {
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
 	
-    nodeText
-	.attr("cx", function(d){ return d.x; })
+	nodeText
+	    .attr("cx", function(d){ return d.x; })
         .attr("cy", function(d){ return d.y; });
 		
   }
