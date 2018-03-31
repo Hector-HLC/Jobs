@@ -73,8 +73,16 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  .style("stroke-dasharray", linkDash);
 	  //.style("stroke", linkColour);  //可透過此行控制不同交易類型links顏色
 	  
-    link.append('title')
+  link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
+  
+  var path = container.append("g").selectAll("path")
+    .data(graph.links)
+	.enter().append("path")
+	  .attr('marker-end', "url(#arrowhead)");
+	  
+	
+  
   
   var node = container.append("g")
       .attr("class", "nodes")
@@ -102,12 +110,13 @@ d3.json("testingNetwork.json", function(error, graph) {
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; })
-		.attr("d", linkArc);
+        .attr("y2", function(d) { return d.target.y; });
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
 	
+	path
+	    .attr("d", linkArc);
 		
   }
   
