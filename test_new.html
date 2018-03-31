@@ -102,7 +102,8 @@ d3.json("testingNetwork.json", function(error, graph) {
         .attr("x1", function(d) { return d.source.x; })
         .attr("y1", function(d) { return d.source.y; })
         .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        .attr("y2", function(d) { return d.target.y; })
+		.attr("d", linkArc);
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
@@ -112,7 +113,15 @@ d3.json("testingNetwork.json", function(error, graph) {
   
 svg.call(zoom)
 });
-function linkColour(d){
+function linkArc(d){
+  var  dx = d.target.x - d.source.x,
+       dy = d.target.y - d.source.y,
+	   dr = Math.sqrt(dx * dx + dy * dy);
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0, 1 " + d.target.x + "," + d.target.y;
+}
+
+
+function linkColour(d){  // 控制links 色彩
   if (d.type1 == "I"){
      return "green";
   } else {
@@ -120,9 +129,9 @@ function linkColour(d){
   }
 }
 
-function linkDash(d){
+function linkDash(d){    // 控制虛線樣式
   if (d.type1 == "O"){
-   return "10,5, 2";   // 控制虛線樣式
+   return "10,5, 2";   
   }
 }
 
