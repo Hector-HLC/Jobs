@@ -3,7 +3,7 @@
 <meta charset="utf-8">
 <head>
 <style>
-
+// 	前面有加上. 需要用.attr("class","")呼叫
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;
@@ -74,7 +74,8 @@ d3.json("testingNetwork.json", function(error, graph) {
     .selectAll("line")
     .data(graph.links)
     .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
+      .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
+	  .style("stroke", linkColour);
   
     link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
@@ -134,6 +135,14 @@ d3.json("testingNetwork.json", function(error, graph) {
   
 svg.call(zoom)
 });
+
+function linkColour(d){
+  if (d.type1 == "I"){
+     return "green";
+  } else {
+     return "red";
+  }
+}
 
 function dragstarted(d) {
   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
