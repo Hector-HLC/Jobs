@@ -2,117 +2,117 @@
   "nodes":[
   {
     "id": "John",
-    "group": "D",
-    "title": "sales",
-    "valueNode": 5
+    "group": "E",
+    "title": "banker",
+    "sizeNode": 15
   },
   {
     "id": "Jason",
-    "group": "A",
-    "title": "banker",
-    "valueNode": 3
+    "group": "B",
+    "title": "researcher",
+    "sizeNode": 23
   },
   {
     "id": "Jack",
-    "group": "E",
-    "title": "doctor",
-    "valueNode": 4
+    "group": "B",
+    "title": "designer",
+    "sizeNode": 26
   },
   {
     "id": "Johnnon",
-    "group": "B",
-    "title": "sales",
-    "valueNode": 3
+    "group": "E",
+    "title": "banker",
+    "sizeNode": 21
   },
   {
     "id": "Joshua",
-    "group": "B",
-    "title": "researcher",
-    "valueNode": 1
+    "group": "E",
+    "title": "designer",
+    "sizeNode": 30
   },
   {
     "id": "Jane",
-    "group": "A",
+    "group": "C",
     "title": "banker",
-    "valueNode": 0
+    "sizeNode": 21
   },
   {
     "id": "David",
-    "group": "B",
-    "title": "designer",
-    "valueNode": 9
+    "group": "C",
+    "title": "sales",
+    "sizeNode": 15
   },
   {
     "id": "Mary",
-    "group": "E",
-    "title": "sales",
-    "valueNode": 12
+    "group": "C",
+    "title": "doctor",
+    "sizeNode": 20
   },
   {
     "id": "Michael",
     "group": "A",
-    "title": "sales",
-    "valueNode": 8
+    "title": "doctor",
+    "sizeNode": 24
   },
   {
     "id": "Steven",
-    "group": "A",
+    "group": "E",
     "title": "banker",
-    "valueNode": 22
+    "sizeNode": 23
   },
   {
     "id": "Phil",
-    "group": "E",
+    "group": "D",
     "title": "researcher",
-    "valueNode": 17
+    "sizeNode": 29
   },
   {
     "id": "Alex",
     "group": "D",
-    "title": "sales",
-    "valueNode": 8
+    "title": "banker",
+    "sizeNode": 30
   },
   {
     "id": "Sandra",
-    "group": "E",
-    "title": "sales",
-    "valueNode": 3
+    "group": "A",
+    "title": "doctor",
+    "sizeNode": 23
   },
   {
     "id": "Ellen",
-    "group": "A",
-    "title": "banker",
-    "valueNode": 6
+    "group": "B",
+    "title": "designer",
+    "sizeNode": 22
   },
   {
     "id": "Risa",
-    "group": "A",
-    "title": "researcher",
-    "valueNode": 26
+    "group": "E",
+    "title": "designer",
+    "sizeNode": 16
   },
   {
     "id": "Emma",
-    "group": "B",
+    "group": "C",
     "title": "banker",
-    "valueNode": 1
+    "sizeNode": 26
   },
   {
     "id": "Luke",
-    "group": "A",
-    "title": "researcher",
-    "valueNode": 16
+    "group": "D",
+    "title": "sales",
+    "sizeNode": 24
   },
   {
     "id": "Hermine",
     "group": "D",
     "title": "sales",
-    "valueNode": 7
+    "sizeNode": 28
   },
   {
     "id": "Yannick",
-    "group": "B",
-    "title": "researcher",
-    "valueNode": 18
+    "group": "E",
+    "title": "designer",
+    "sizeNode": 26
   }
 ],
   "links":[
