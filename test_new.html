@@ -112,12 +112,12 @@ d3.json("testingNetwork.json", function(error, graph) {
       .data(graph.nodes)
       .enter().append("text")
         .text(function(d) {return d.id ;})
-		  .attr({
-		    "x": function(d){return d.x},
-			"y": function(d){return d.y},
-			"class":"nodelabel",
-			"stroke":"black"
-		  });
+	.attr({
+		"x": function(d){return d.x;},
+		"y": function(d){return d.y;},
+		"class":"nodelabel",
+		"stroke":"black"
+	});
 
   
   simulation
