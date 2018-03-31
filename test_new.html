@@ -52,7 +52,7 @@ var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody())       // 負數會使節點互斥
     .force("center", d3.forceCenter(width / 2, height / 2))
-    .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*10 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
+    .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 
 svg.append("defs").append("rect")
       .attr("width", width)
