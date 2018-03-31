@@ -80,6 +80,8 @@ d3.json("testingNetwork.json", function(error, graph) {
     .data(graph.links)
 	.enter().append("path")
 	  .attr('marker-end', "url(#arrowhead)")
+	  .attr("stroke":"green")
+	  .attr("fill":"none")
 	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
 	  
   path.append('title')
