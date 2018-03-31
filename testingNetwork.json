@@ -2,215 +2,919 @@
   "nodes":[
   {
     "id": "John",
-    "group": "C",
-    "title": "doctor",
-    "valueNode": 5
+    "group": "D",
+    "title": "designer",
+    "valueNode": 19
   },
   {
     "id": "Jason",
-    "group": "C",
-    "title": "doctor",
-    "valueNode": 4
+    "group": "B",
+    "title": "sales",
+    "valueNode": 11
   },
   {
     "id": "Jack",
     "group": "A",
     "title": "doctor",
-    "valueNode": 3
+    "valueNode": 29
   },
   {
     "id": "Johnnon",
-    "group": "D",
-    "title": "clerk",
-    "valueNode": 7
+    "group": "E",
+    "title": "designer",
+    "valueNode": 8
   },
   {
     "id": "Joshua",
-    "group": "E",
-    "title": "doctor",
-    "valueNode": 3
+    "group": "D",
+    "title": "sales",
+    "valueNode": 4
   },
   {
     "id": "Jane",
     "group": "D",
-    "title": "police",
-    "valueNode": 5
+    "title": "researcher",
+    "valueNode": 12
   },
   {
     "id": "David",
-    "group": "E",
+    "group": "C",
     "title": "doctor",
-    "valueNode": 2
+    "valueNode": 15
   },
   {
     "id": "Mary",
-    "group": "E",
-    "title": "police",
-    "valueNode": 3
+    "group": "D",
+    "title": "banker",
+    "valueNode": 25
   },
   {
     "id": "Michael",
-    "group": "A",
+    "group": "D",
     "title": "doctor",
-    "valueNode": 10
+    "valueNode": 7
   },
   {
     "id": "Steven",
+    "group": "B",
+    "title": "banker",
+    "valueNode": 8
+  },
+  {
+    "id": "Phil",
+    "group": "A",
+    "title": "researcher",
+    "valueNode": 1
+  },
+  {
+    "id": "Alex",
+    "group": "D",
+    "title": "researcher",
+    "valueNode": 2
+  },
+  {
+    "id": "Sandra",
+    "group": "C",
+    "title": "researcher",
+    "valueNode": 3
+  },
+  {
+    "id": "Ellen",
+    "group": "C",
+    "title": "banker",
+    "valueNode": 14
+  },
+  {
+    "id": "Risa",
     "group": "C",
     "title": "doctor",
+    "valueNode": 65
+  },
+  {
+    "id": "Emma",
+    "group": "B",
+    "title": "banker",
+    "valueNode": 0
+  },
+  {
+    "id": "Luke",
+    "group": "E",
+    "title": "sales",
+    "valueNode": 8
+  },
+  {
+    "id": "Hermine",
+    "group": "A",
+    "title": "designer",
+    "valueNode": 17
+  },
+  {
+    "id": "Yannick",
+    "group": "D",
+    "title": "sales",
     "valueNode": 10
   }
 ],
   "links":[
   {
-    "source": "Steven",
-    "target": "David",
-    "value1": 3,
-    "value2": 2
-  },
-  {
-    "source": "Johnnon",
+    "source": "Sandra",
     "target": "Johnnon",
-    "value1": 2,
-    "value2": 0
-  },
-  {
-    "source": "Jason",
-    "target": "Johnnon",
-    "value1": 29,
-    "value2": 3
-  },
-  {
-    "source": "John",
-    "target": "Jack",
-    "value1": 7,
-    "value2": 0
-  },
-  {
-    "source": "Jack",
-    "target": "Jane",
-    "value1": 2,
-    "value2": 29
-  },
-  {
-    "source": "Michael",
-    "target": "Jane",
-    "value1": 11,
-    "value2": 33
-  },
-  {
-    "source": "Jason",
-    "target": "Jane",
-    "value1": 7,
-    "value2": 10
-  },
-  {
-    "source": "John",
-    "target": "Jack",
-    "value1": 7,
-    "value2": 12
-  },
-  {
-    "source": "David",
-    "target": "Joshua",
-    "value1": 2,
-    "value2": 5
-  },
-  {
-    "source": "Johnnon",
-    "target": "John",
-    "value1": 0,
-    "value2": 4
-  },
-  {
-    "source": "John",
-    "target": "Jason",
+    "type1": "O",
+    "type2": "C",
     "value1": 12,
-    "value2": 11
+    "value2": 56
+  },
+  {
+    "source": "Johnnon",
+    "target": "Ellen",
+    "type1": "O",
+    "type2": "A",
+    "value1": 5,
+    "value2": 126
   },
   {
     "source": "Jason",
-    "target": "Steven",
-    "value1": 6,
-    "value2": 6
+    "target": "Ellen",
+    "type1": "I",
+    "type2": "A",
+    "value1": 9,
+    "value2": 1
   },
   {
-    "source": "Joshua",
-    "target": "John",
-    "value1": 1,
-    "value2": 7
+    "source": "Johnnon",
+    "target": "Hermine",
+    "type1": "I",
+    "type2": "C",
+    "value1": 13,
+    "value2": 38
   },
   {
-    "source": "Jack",
+    "source": "Risa",
     "target": "Jason",
-    "value1": 3,
-    "value2": 0
+    "type1": "I",
+    "type2": "E",
+    "value1": 12,
+    "value2": 203
   },
   {
-    "source": "Steven",
-    "target": "Michael",
-    "value1": 6,
-    "value2": 25
-  },
-  {
-    "source": "Mary",
-    "target": "Michael",
-    "value1": 8,
-    "value2": 35
-  },
-  {
-    "source": "John",
-    "target": "Jane",
+    "source": "Emma",
+    "target": "Phil",
+    "type1": "I",
+    "type2": "E",
     "value1": 11,
-    "value2": 27
-  },
-  {
-    "source": "John",
-    "target": "Jane",
-    "value1": 4,
-    "value2": 4
-  },
-  {
-    "source": "Michael",
-    "target": "Steven",
-    "value1": 4,
-    "value2": 16
-  },
-  {
-    "source": "John",
-    "target": "Mary",
-    "value1": 10,
-    "value2": 3
-  },
-  {
-    "source": "Jason",
-    "target": "John",
-    "value1": 4,
     "value2": 19
   },
   {
     "source": "David",
-    "target": "Steven",
-    "value1": 11,
-    "value2": 1
-  },
-  {
-    "source": "Jack",
-    "target": "Steven",
-    "value1": 18,
-    "value2": 23
-  },
-  {
-    "source": "Jack",
-    "target": "Jason",
+    "target": "Michael",
+    "type1": "I",
+    "type2": "C",
     "value1": 9,
-    "value2": 6
+    "value2": 58
+  },
+  {
+    "source": "Joshua",
+    "target": "Jane",
+    "type1": "O",
+    "type2": "D",
+    "value1": 1,
+    "value2": 113
+  },
+  {
+    "source": "Jack",
+    "target": "Jack",
+    "type1": "I",
+    "type2": "B",
+    "value1": 20,
+    "value2": 106
+  },
+  {
+    "source": "Luke",
+    "target": "Mary",
+    "type1": "O",
+    "type2": "E",
+    "value1": 9,
+    "value2": 40
   },
   {
     "source": "Johnnon",
-    "target": "Joshua",
+    "target": "Phil",
+    "type1": "I",
+    "type2": "B",
+    "value1": 15,
+    "value2": 111
+  },
+  {
+    "source": "Jane",
+    "target": "Steven",
+    "type1": "I",
+    "type2": "E",
+    "value1": 9,
+    "value2": 88
+  },
+  {
+    "source": "Ellen",
+    "target": "Alex",
+    "type1": "I",
+    "type2": "D",
     "value1": 14,
+    "value2": 50
+  },
+  {
+    "source": "Risa",
+    "target": "Ellen",
+    "type1": "I",
+    "type2": "E",
+    "value1": 24,
+    "value2": 35
+  },
+  {
+    "source": "Michael",
+    "target": "Jack",
+    "type1": "I",
+    "type2": "B",
+    "value1": 9,
+    "value2": 7
+  },
+  {
+    "source": "Alex",
+    "target": "Phil",
+    "type1": "I",
+    "type2": "C",
+    "value1": 9,
+    "value2": 118
+  },
+  {
+    "source": "Ellen",
+    "target": "Jane",
+    "type1": "O",
+    "type2": "B",
+    "value1": 1,
+    "value2": 23
+  },
+  {
+    "source": "Mary",
+    "target": "Steven",
+    "type1": "O",
+    "type2": "C",
+    "value1": 13,
+    "value2": 90
+  },
+  {
+    "source": "David",
+    "target": "Phil",
+    "type1": "O",
+    "type2": "D",
+    "value1": 6,
+    "value2": 74
+  },
+  {
+    "source": "Joshua",
+    "target": "Risa",
+    "type1": "I",
+    "type2": "A",
+    "value1": 3,
+    "value2": 21
+  },
+  {
+    "source": "Steven",
+    "target": "Sandra",
+    "type1": "O",
+    "type2": "E",
+    "value1": 1,
+    "value2": 21
+  },
+  {
+    "source": "Joshua",
+    "target": "Jason",
+    "type1": "O",
+    "type2": "E",
+    "value1": 12,
+    "value2": 22
+  },
+  {
+    "source": "John",
+    "target": "John",
+    "type1": "O",
+    "type2": "A",
+    "value1": 1,
+    "value2": 138
+  },
+  {
+    "source": "John",
+    "target": "Hermine",
+    "type1": "I",
+    "type2": "A",
+    "value1": 2,
+    "value2": 64
+  },
+  {
+    "source": "Steven",
+    "target": "Hermine",
+    "type1": "I",
+    "type2": "E",
+    "value1": 7,
+    "value2": 45
+  },
+  {
+    "source": "Michael",
+    "target": "John",
+    "type1": "O",
+    "type2": "E",
+    "value1": 6,
+    "value2": 66
+  },
+  {
+    "source": "John",
+    "target": "David",
+    "type1": "I",
+    "type2": "D",
+    "value1": 9,
+    "value2": 126
+  },
+  {
+    "source": "Emma",
+    "target": "Yannick",
+    "type1": "I",
+    "type2": "E",
+    "value1": 11,
+    "value2": 62
+  },
+  {
+    "source": "Ellen",
+    "target": "Alex",
+    "type1": "O",
+    "type2": "E",
+    "value1": 1,
+    "value2": 10
+  },
+  {
+    "source": "David",
+    "target": "John",
+    "type1": "I",
+    "type2": "E",
+    "value1": 10,
+    "value2": 101
+  },
+  {
+    "source": "Mary",
+    "target": "Luke",
+    "type1": "I",
+    "type2": "E",
+    "value1": 7,
+    "value2": 46
+  },
+  {
+    "source": "Ellen",
+    "target": "Hermine",
+    "type1": "O",
+    "type2": "B",
+    "value1": 3,
+    "value2": 133
+  },
+  {
+    "source": "Jane",
+    "target": "Jack",
+    "type1": "O",
+    "type2": "C",
+    "value1": 4,
+    "value2": 67
+  },
+  {
+    "source": "Luke",
+    "target": "Hermine",
+    "type1": "O",
+    "type2": "B",
+    "value1": 19,
+    "value2": 65
+  },
+  {
+    "source": "Luke",
+    "target": "Emma",
+    "type1": "O",
+    "type2": "B",
+    "value1": 14,
+    "value2": 162
+  },
+  {
+    "source": "Jason",
+    "target": "Michael",
+    "type1": "O",
+    "type2": "E",
+    "value1": 0,
+    "value2": 48
+  },
+  {
+    "source": "Luke",
+    "target": "Hermine",
+    "type1": "O",
+    "type2": "E",
+    "value1": 13,
+    "value2": 216
+  },
+  {
+    "source": "Steven",
+    "target": "Ellen",
+    "type1": "O",
+    "type2": "B",
+    "value1": 1,
+    "value2": 67
+  },
+  {
+    "source": "John",
+    "target": "Yannick",
+    "type1": "O",
+    "type2": "D",
+    "value1": 3,
+    "value2": 72
+  },
+  {
+    "source": "Steven",
+    "target": "Luke",
+    "type1": "O",
+    "type2": "B",
+    "value1": 3,
+    "value2": 150
+  },
+  {
+    "source": "David",
+    "target": "Sandra",
+    "type1": "I",
+    "type2": "A",
+    "value1": 2,
+    "value2": 79
+  },
+  {
+    "source": "Ellen",
+    "target": "Yannick",
+    "type1": "I",
+    "type2": "B",
+    "value1": 16,
     "value2": 17
+  },
+  {
+    "source": "Sandra",
+    "target": "Jane",
+    "type1": "I",
+    "type2": "C",
+    "value1": 17,
+    "value2": 6
+  },
+  {
+    "source": "John",
+    "target": "Emma",
+    "type1": "O",
+    "type2": "A",
+    "value1": 3,
+    "value2": 45
+  },
+  {
+    "source": "Risa",
+    "target": "Michael",
+    "type1": "I",
+    "type2": "A",
+    "value1": 4,
+    "value2": 54
+  },
+  {
+    "source": "Alex",
+    "target": "David",
+    "type1": "O",
+    "type2": "B",
+    "value1": 6,
+    "value2": 64
+  },
+  {
+    "source": "Hermine",
+    "target": "Risa",
+    "type1": "I",
+    "type2": "B",
+    "value1": 7,
+    "value2": 32
+  },
+  {
+    "source": "Emma",
+    "target": "Sandra",
+    "type1": "I",
+    "type2": "E",
+    "value1": 4,
+    "value2": 116
+  },
+  {
+    "source": "Steven",
+    "target": "Luke",
+    "type1": "I",
+    "type2": "C",
+    "value1": 15,
+    "value2": 71
+  },
+  {
+    "source": "Jane",
+    "target": "John",
+    "type1": "O",
+    "type2": "D",
+    "value1": 11,
+    "value2": 16
+  },
+  {
+    "source": "Michael",
+    "target": "Phil",
+    "type1": "I",
+    "type2": "C",
+    "value1": 4,
+    "value2": 22
+  },
+  {
+    "source": "Mary",
+    "target": "Michael",
+    "type1": "I",
+    "type2": "E",
+    "value1": 2,
+    "value2": 65
+  },
+  {
+    "source": "John",
+    "target": "Jane",
+    "type1": "I",
+    "type2": "C",
+    "value1": 1,
+    "value2": 33
+  },
+  {
+    "source": "Jane",
+    "target": "Ellen",
+    "type1": "O",
+    "type2": "A",
+    "value1": 4,
+    "value2": 113
+  },
+  {
+    "source": "Jason",
+    "target": "Jane",
+    "type1": "I",
+    "type2": "C",
+    "value1": 3,
+    "value2": 271
+  },
+  {
+    "source": "Michael",
+    "target": "Johnnon",
+    "type1": "O",
+    "type2": "D",
+    "value1": 4,
+    "value2": 5
+  },
+  {
+    "source": "Luke",
+    "target": "Jason",
+    "type1": "O",
+    "type2": "B",
+    "value1": 2,
+    "value2": 99
+  },
+  {
+    "source": "Ellen",
+    "target": "Jack",
+    "type1": "I",
+    "type2": "A",
+    "value1": 7,
+    "value2": 31
+  },
+  {
+    "source": "John",
+    "target": "Sandra",
+    "type1": "I",
+    "type2": "E",
+    "value1": 2,
+    "value2": 160
+  },
+  {
+    "source": "Michael",
+    "target": "Johnnon",
+    "type1": "O",
+    "type2": "C",
+    "value1": 13,
+    "value2": 6
+  },
+  {
+    "source": "Ellen",
+    "target": "John",
+    "type1": "O",
+    "type2": "D",
+    "value1": 10,
+    "value2": 16
+  },
+  {
+    "source": "Hermine",
+    "target": "David",
+    "type1": "I",
+    "type2": "D",
+    "value1": 8,
+    "value2": 15
+  },
+  {
+    "source": "Alex",
+    "target": "Risa",
+    "type1": "I",
+    "type2": "A",
+    "value1": 7,
+    "value2": 6
+  },
+  {
+    "source": "Luke",
+    "target": "Emma",
+    "type1": "O",
+    "type2": "A",
+    "value1": 0,
+    "value2": 228
+  },
+  {
+    "source": "Jane",
+    "target": "Michael",
+    "type1": "O",
+    "type2": "D",
+    "value1": 24,
+    "value2": 220
+  },
+  {
+    "source": "Ellen",
+    "target": "Risa",
+    "type1": "O",
+    "type2": "E",
+    "value1": 3,
+    "value2": 190
+  },
+  {
+    "source": "Ellen",
+    "target": "Joshua",
+    "type1": "O",
+    "type2": "D",
+    "value1": 20,
+    "value2": 23
+  },
+  {
+    "source": "Steven",
+    "target": "Alex",
+    "type1": "O",
+    "type2": "B",
+    "value1": 3,
+    "value2": 45
+  },
+  {
+    "source": "Jane",
+    "target": "Jack",
+    "type1": "O",
+    "type2": "C",
+    "value1": 15,
+    "value2": 64
+  },
+  {
+    "source": "Risa",
+    "target": "John",
+    "type1": "O",
+    "type2": "D",
+    "value1": 14,
+    "value2": 30
+  },
+  {
+    "source": "Mary",
+    "target": "Ellen",
+    "type1": "O",
+    "type2": "C",
+    "value1": 5,
+    "value2": 81
+  },
+  {
+    "source": "Johnnon",
+    "target": "Jack",
+    "type1": "I",
+    "type2": "D",
+    "value1": 13,
+    "value2": 102
+  },
+  {
+    "source": "Joshua",
+    "target": "Ellen",
+    "type1": "O",
+    "type2": "B",
+    "value1": 10,
+    "value2": 112
+  },
+  {
+    "source": "Joshua",
+    "target": "Alex",
+    "type1": "I",
+    "type2": "E",
+    "value1": 8,
+    "value2": 72
+  },
+  {
+    "source": "Michael",
+    "target": "Luke",
+    "type1": "O",
+    "type2": "D",
+    "value1": 9,
+    "value2": 195
+  },
+  {
+    "source": "Yannick",
+    "target": "Johnnon",
+    "type1": "O",
+    "type2": "A",
+    "value1": 5,
+    "value2": 18
+  },
+  {
+    "source": "Risa",
+    "target": "Johnnon",
+    "type1": "O",
+    "type2": "E",
+    "value1": 1,
+    "value2": 34
+  },
+  {
+    "source": "Jason",
+    "target": "John",
+    "type1": "O",
+    "type2": "A",
+    "value1": 4,
+    "value2": 18
+  },
+  {
+    "source": "Ellen",
+    "target": "Steven",
+    "type1": "I",
+    "type2": "A",
+    "value1": 4,
+    "value2": 38
+  },
+  {
+    "source": "Jack",
+    "target": "Jack",
+    "type1": "I",
+    "type2": "B",
+    "value1": 18,
+    "value2": 61
+  },
+  {
+    "source": "Mary",
+    "target": "Jason",
+    "type1": "O",
+    "type2": "C",
+    "value1": 16,
+    "value2": 70
+  },
+  {
+    "source": "Risa",
+    "target": "Steven",
+    "type1": "I",
+    "type2": "A",
+    "value1": 5,
+    "value2": 19
+  },
+  {
+    "source": "Yannick",
+    "target": "Yannick",
+    "type1": "O",
+    "type2": "D",
+    "value1": 13,
+    "value2": 35
+  },
+  {
+    "source": "Risa",
+    "target": "Ellen",
+    "type1": "I",
+    "type2": "A",
+    "value1": 20,
+    "value2": 12
+  },
+  {
+    "source": "Luke",
+    "target": "Yannick",
+    "type1": "O",
+    "type2": "C",
+    "value1": 8,
+    "value2": 113
+  },
+  {
+    "source": "Steven",
+    "target": "Steven",
+    "type1": "O",
+    "type2": "E",
+    "value1": 3,
+    "value2": 23
+  },
+  {
+    "source": "Johnnon",
+    "target": "Mary",
+    "type1": "O",
+    "type2": "C",
+    "value1": 6,
+    "value2": 50
+  },
+  {
+    "source": "David",
+    "target": "Johnnon",
+    "type1": "O",
+    "type2": "A",
+    "value1": 3,
+    "value2": 55
+  },
+  {
+    "source": "Jason",
+    "target": "Jane",
+    "type1": "I",
+    "type2": "B",
+    "value1": 2,
+    "value2": 96
+  },
+  {
+    "source": "Phil",
+    "target": "Sandra",
+    "type1": "I",
+    "type2": "D",
+    "value1": 3,
+    "value2": 194
+  },
+  {
+    "source": "Yannick",
+    "target": "Sandra",
+    "type1": "O",
+    "type2": "B",
+    "value1": 8,
+    "value2": 16
+  },
+  {
+    "source": "Alex",
+    "target": "Luke",
+    "type1": "I",
+    "type2": "C",
+    "value1": 0,
+    "value2": 37
+  },
+  {
+    "source": "Joshua",
+    "target": "Emma",
+    "type1": "I",
+    "type2": "E",
+    "value1": 9,
+    "value2": 52
+  },
+  {
+    "source": "Hermine",
+    "target": "Emma",
+    "type1": "I",
+    "type2": "C",
+    "value1": 8,
+    "value2": 90
+  },
+  {
+    "source": "Mary",
+    "target": "Alex",
+    "type1": "O",
+    "type2": "C",
+    "value1": 13,
+    "value2": 1
+  },
+  {
+    "source": "Mary",
+    "target": "Michael",
+    "type1": "I",
+    "type2": "C",
+    "value1": 10,
+    "value2": 58
+  },
+  {
+    "source": "Phil",
+    "target": "Risa",
+    "type1": "O",
+    "type2": "C",
+    "value1": 5,
+    "value2": 29
+  },
+  {
+    "source": "Jack",
+    "target": "John",
+    "type1": "O",
+    "type2": "A",
+    "value1": 0,
+    "value2": 61
+  },
+  {
+    "source": "Emma",
+    "target": "Sandra",
+    "type1": "O",
+    "type2": "D",
+    "value1": 1,
+    "value2": 89
+  },
+  {
+    "source": "Phil",
+    "target": "Steven",
+    "type1": "I",
+    "type2": "E",
+    "value1": 1,
+    "value2": 52
   }
 ]
 }
