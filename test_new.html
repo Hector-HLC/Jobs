@@ -89,7 +89,7 @@ d3.json("testingNetwork.json", function(error, graph) {
   var path = container.append("g").selectAll("path")
     .data(graph.links)
 	.enter().append("path")
-	  .attr('marker-end',  "url(#arrowhead)")
+	  .attr('marker-end', url(#arrowhead))
 	  .attr("stroke","gray")
 	  .attr("fill","none")
 	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
@@ -158,6 +158,15 @@ d3.json("testingNetwork.json", function(error, graph) {
   
 svg.call(zoom)
 });
+
+// Highlight 技巧
+
+thisNode = nodeObject; // where nodeObject is the javascript object for the node, it's probably called "d" in your function.
+d3.selectAll(".link")
+  .style("stroke",function(d) {
+     return d.source === thisNode || d.target === thisNode ? "red" : "#888888";
+});
+
 function linkArc(d){
   var  dx = d.target.x - d.source.x,
        dy = d.target.y - d.source.y,
