@@ -20,7 +20,7 @@
   stroke: #999;
 }
 text {
-  font: verdana;
+  font: Arial;
   font-size: 24px;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
@@ -98,7 +98,11 @@ d3.json("testingNetwork.json", function(error, graph) {
   path.append('title')
     .attr("class","title")
 	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
-		
+
+ //箭頭設定
+	container.append("defs").append("marker")
+	  .attr("id",)
+	
  // 節點設定 
   var node = container.append("g")
       .attr("class", "nodes")
