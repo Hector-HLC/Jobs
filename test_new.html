@@ -120,6 +120,7 @@ d3.json("testingNetwork.json", function(error, graph) {
     .enter().append("circle")
       .attr("r", function(d) { return d.sizeNode ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
+	  .on("click", onclickFunction)
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -161,11 +162,23 @@ svg.call(zoom)
 
 // Highlight 技巧
 
-thisNode = nodeObject; // where nodeObject is the javascript object for the node, it's probably called "d" in your function.
+
+
+//thisNode = nodeObject; // where nodeObject is the javascript object for the node, it's probably called "d" in your function.
+
+
+
 d3.selectAll(".link")
   .style("stroke",function(d) {
      return d.source === thisNode || d.target === thisNode ? "red" : "#888888";
 });
+
+function onclickFunction (d){
+  var circle = d3.select(this);
+  node
+   .attr("fill", "black")
+}
+
 
 function linkArc(d){
   var  dx = d.target.x - d.source.x,
