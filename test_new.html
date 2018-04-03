@@ -64,7 +64,6 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 	
 var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("path", d3.forceLink().id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody().strength(-1))       // 負數會使節點互斥
     .force("center", d3.forceCenter(width / 2, height / 2))
     .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*3 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
@@ -117,16 +116,16 @@ d3.json("testingNetwork.json", function(error, graph) {
   simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
-  simulation.force("path")
+  simulation.force("link")
       .links(graph.path);
   function ticked() {
     path
 	.attr("d", linkArc);
+	
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
 	
-
 		
   }
   
