@@ -88,9 +88,10 @@ d3.json("testingNetwork.json", function(error, graph) {
     .data(graph.links)
 	.enter().append("path")
 	  .attr('marker-end', "url(#arrowhead)")
-	  .attr("stroke","green")
+	  .attr("stroke","gray")
 	  .attr("fill","none")
-	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
+	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
+	    .style("stroke-dasharray", linkDash);
 	  
   path.append('title')
     .attr("class","title")
@@ -117,7 +118,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .nodes(graph.nodes)
       .on("tick", ticked);
   simulation.force("link")
-      .links(graph.links);
+      .links(graph.links);    //呼叫simulation.force "link"的定義及.links函數；graph.links資料來源
   function ticked() {
     path
 	.attr("d", linkArc);
