@@ -118,7 +118,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .nodes(graph.nodes)
       .on("tick", ticked);
   simulation.force("path")
-      .path(graph.path);
+      .links(graph.path);
   function ticked() {
     path
 	.attr("d", linkArc);
