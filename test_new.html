@@ -69,17 +69,16 @@ d3.json("testingNetwork.json", function(error, graph) {
   path.append('title')
     .attr("class","title")
 	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
-
  //箭頭設定
 	container.append("defs").append("marker")
 	.data(graph.links)
-	  .attr("refX", 0) 
-      .attr("refY", 0)
-	  .attr("id", "arrowhead")
-	  .attr("viewBox","0, -5, 10, 10")
-      .attr("markerWidth", 5)
-      .attr("markerHeight", 5)
-      .attr("orient", "auto")
+	  .attr({"id":"arrowhead",
+	         "refX":0,
+			 "refY":0,
+             "viewBox":"0, -5, 10, 10",
+             "markerWidth": 5,
+             "markerHeight": 5,
+             "orient":"auto"})
 	.append("path")
 	  .attr("d", linkArc)
 	
@@ -130,27 +129,17 @@ d3.json("testingNetwork.json", function(error, graph) {
   
 svg.call(zoom)
 });
-
 // Highlight 技巧
-
-
-
 //thisNode = nodeObject; // where nodeObject is the javascript object for the node, it's probably called "d" in your function.
-
-
-
 d3.selectAll(".link")
   .style("stroke",function(d) {
      return d.source === thisNode || d.target === thisNode ? "red" : "#888888";
 });
-
 function onclickFunction (d){
   var circle = d3.select(this);
   node
    .attr("fill", "black")
 }
-
-
 function linkArc(d){
   var  dx = d.target.x - d.source.x,
        dy = d.target.y - d.source.y,
