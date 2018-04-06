@@ -72,13 +72,13 @@ d3.json("testingNetwork.json", function(error, graph) {
  //箭頭設定
 	container.append("defs").append("marker")
 	.data(graph.links)
-	  .attrs({"id":"arrowhead",
-	         "refX":0,
-			 "refY":0,
-             "viewBox":"0, -5, 10, 10",
-             "markerWidth": 5,
-             "markerHeight": 5,
-             "orient":"auto"})
+	  .attr("id","arrowhead")
+	  .attr("refX",0)
+	  .attr("refY",0)
+      .attr("viewBox","0, -5, 10, 10")
+      .attr("markerWidth",5)
+      .attr("markerHeight",5)
+      .attr("orient":"auto")
 	.append("container:path")
 	  .attr("d", linkArc)
 	
