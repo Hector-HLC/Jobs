@@ -13,7 +13,7 @@
   stroke: #999;
 }
 text {
-  font: Arial;
+  font-family: Arial, sans-serif;
   font-size: 24px;
   pointer-events: none;
   text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
