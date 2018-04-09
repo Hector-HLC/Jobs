@@ -57,20 +57,6 @@ d3.json("testingNetwork.json", function(error, graph) {
   link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   */
-  //箭頭設定
-	container.append("defs").append("marker")
-	  .attr("id","arrowhead")
-	  .attr("refX",5)
-	  .attr("refY",0)
-      .attr("viewBox","-0, -5, 960,600")
-      .attr("markerWidth",25)
-      .attr("markerHeight",25)
-      .attr("orient","auto")
-	.append("container:path")
-	  .attr("d", "M 0,-5 L 10 ,0 L 0,5")
-	  .attr('fill', '#999')
-      .style('stroke','green')
-	
  
   
   var path = container.append("g").selectAll("path")
@@ -86,6 +72,22 @@ d3.json("testingNetwork.json", function(error, graph) {
     .attr("class","title")
 	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
 
+  //箭頭設定
+	container.append("defs").append("marker")
+	  .attr("id","arrowhead")
+	  .attr("refX",5)
+	  .attr("refY",0)
+      .attr("viewBox","-0, -5, 960,600")
+      .attr("markerWidth",25)
+      .attr("markerHeight",25)
+      .attr("orient","auto")
+	.append("container:path")
+	  .attr("d", "M 0,-5 L 10 ,0 L 0,5")
+	  .attr('fill', '#999')
+      .style('stroke','green')	
+	
+	
+	
  // 節點設定 
   var node = container.append("g")
       .attr("class", "nodes")
