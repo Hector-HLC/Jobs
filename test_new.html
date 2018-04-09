@@ -70,8 +70,9 @@ d3.json("testingNetwork.json", function(error, graph) {
     .attr("class","title")
 	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
  //箭頭設定
-	container.append("defs").append("marker")
+	container.append("defs").selectAll("marker")
 	.data(graph.links)
+	.enter().append("marker")
 	  .attr("id","arrowhead")
 	  .attr("refX",5)
 	  .attr("refY",0)
