@@ -57,19 +57,7 @@ d3.json("testingNetwork.json", function(error, graph) {
   link.append('title')
     .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
   */
-  var path = container.append("g").selectAll("path")
-    .data(graph.links)
-	.enter().append("path")
-	  .attr('marker-end',  "url(#arrow)")
-	  .attr("stroke","gray")
-	  .attr("fill","none")
-	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
-	    .style("stroke-dasharray", linkDash);
-	  
-  path.append('title')
-    .attr("class","title")
-	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
- //箭頭設定
+  //箭頭設定
 	container.append("defs").append("marker")
 	  .attr("id","marker")
 	  .attr("refX",5)
@@ -83,6 +71,21 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  .attr('fill', '#999')
       .style('stroke','none')
 	
+ 
+  
+  var path = container.append("g").selectAll("path")
+    .data(graph.links)
+	.enter().append("path")
+	  .attr('marker-end',  "url(#arrow)")
+	  .attr("stroke","gray")
+	  .attr("fill","none")
+	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
+	    .style("stroke-dasharray", linkDash);
+	  
+  path.append('title')
+    .attr("class","title")
+	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
+
  // 節點設定 
   var node = container.append("g")
       .attr("class", "nodes")
