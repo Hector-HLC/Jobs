@@ -76,7 +76,7 @@ d3.json("testingNetwork.json", function(error, graph) {
   var path = container.append("g").selectAll("path")
     .data(graph.links)
 	.enter().append("path")
-	  .attr('marker-end',  "url(#arrow)")
+	  .attr('marker-end',  "url(#marker)")
 	  .attr("stroke","gray")
 	  .attr("fill","none")
 	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
