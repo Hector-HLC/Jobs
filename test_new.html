@@ -40,8 +40,6 @@ var simulation = d3.forceSimulation()
     .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*3 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 var container = svg.append("g")
      .call(zoom);
-
-
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
@@ -106,8 +104,6 @@ d3.json("testingNetwork.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
 		.attr("font-size","36px");
-
-
 		
  //節點標示
   var nodeText = container.append("g")
@@ -116,11 +112,12 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  .enter().append("text")
 	    .text(function(d) {return d.id;});
 		
-
  
   simulation
       .nodes(graph.nodes)
-      .on("tick", ticked);
+      .on("tick", ticked)
+	  .on("dblclick", connectedNodes);
+	  
   simulation.force("link")
       .links(graph.links);    //呼叫simulation.force "link"的定義及.links函數；graph.links資料來源
   function ticked() {
@@ -142,6 +139,7 @@ svg.call(zoom)
 });
 // Highlight 技巧
 //thisNode = nodeObject; // where nodeObject is the javascript object for the node, it's probably called "d" in your function.
+/*
 d3.selectAll(".link")
   .style("stroke",function(d) {
      return d.source === thisNode || d.target === thisNode ? "red" : "#888888";
@@ -151,6 +149,16 @@ function onclickFunction (d){
   node
    .attr("fill", "black")
 }
+*/
+
+var linkedByIndex = {};
+for (i = 0; i < graph.nodes.length; i++) {
+    linkedByIndex[i + "," + i] = 1;
+};
+graph.links.forEach(function (d) {
+    linkedByIndex[d.source.index + "," + d.target.index] = 1;
+});
+
 function linkArc(d){
   var  dx = d.target.x - d.source.x,
        dy = d.target.y - d.source.y,
@@ -188,5 +196,24 @@ function zoomed() {
    .attr("transform",d3.event.transform);
  }
  
+function neighboring(a, b) {  // 決定鄰近節點
+    return linkedByIndex[a.index + "," + b.index];
+}
 
+function connectedNodes() {  // 控制連結節點 K 階
+
+    if (toggle == 0) {
+
+        d = d3.select(this).node().__data__;
+        node.style("opacity", function (o) {
+            return neighboring(d, o) | neighboring(o, d) ? 1 : 0.15;
+        });
+        toggle = 1;
+    } else {
+        node.style("opacity", 1);;
+        toggle = 0;
+    }
+
+}
+ 
 </script>
