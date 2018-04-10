@@ -41,36 +41,7 @@ var simulation = d3.forceSimulation()
 var container = svg.append("g")
      .call(zoom);
 
-var NODES = graph.nodes;
-	 
-//設定選單
 
-var select = d3.select("body")
-      .append("select")
-      .on("change", function() {
-        
-        var select = d3.select("select").node().value;
-        if (select == "Select"){
-          doReset();
-          return;
-        }
-        var find = flatten(NODES).find(function(d) {
-          if (d.name == select)
-            return true;
-        });
-        doReset()
-        while (find.parent) {
-          find.color = "red";
-          find = find.parent;
-        }
-        
-        update(find)
-      });
-    select.append("option")
-      .attr("value", "Select")
-      .attr("selected", "true")
-      .text("Select");
-	
 	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
@@ -136,11 +107,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
 		.attr("font-size","36px");
 
-  graph.nodes.forEach(function(d) {
-      select.append("option")
-        .attr("value", d.name)
-        .text(d.name);
-    });
+
 		
  //節點標示
   var nodeText = container.append("g")
@@ -221,23 +188,5 @@ function zoomed() {
    .attr("transform",d3.event.transform);
  }
  
-function flatten(NODES) {
-  var nodes = [],
-        i = 0;
-  function recurse(node) {
-        if (node.children) node.children.forEach(recurse);
-        if (node._children) node._children.forEach(recurse);
-        if (!node.id) node.id = ++i;
-        nodes.push(node);
-  }
-      recurse(NODES);
-      return nodes;
-}
 
-function doReset(){
-        flatten(NODES).forEach(function(d) {
-          d.color = undefined;
-        })
-        update(NODES);      
-} 
 </script>
