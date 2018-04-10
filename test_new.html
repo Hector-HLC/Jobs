@@ -52,7 +52,7 @@ var select = d3.select("body")
           doReset();
           return;
         }
-        var find = flatten(node).find(function(d) {
+        var find = flatten(graph.nodes).find(function(d) {
           if (d.name == select)
             return true;
         });
@@ -219,23 +219,23 @@ function zoomed() {
    .attr("transform",d3.event.transform);
  }
  
-function flatten(root) {
+function flatten(graph.nodes) {
   var nodes = [],
         i = 0;
-  function recurse(node) {
-        if (node.children) node.children.forEach(recurse);
-        if (node._children) node._children.forEach(recurse);
-        if (!node.id) node.id = ++i;
-        nodes.push(node);
+  function recurse(graph.nodes) {
+        if (graph.nodes.children) graph.nodes.children.forEach(recurse);
+        if (graph.nodes._children) graph.nodes._children.forEach(recurse);
+        if (!graph.nodes.id) graph.nodes.id = ++i;
+        nodes.push(graph.nodes);
   }
-      recurse(node);
+      recurse(graph.nodes);
       return nodes;
 }
 
 function doReset(){
-        flatten(node).forEach(function(d) {
+        flatten(graph.nodes).forEach(function(d) {
           d.color = undefined;
         })
-        update(node);      
+        update(graph.nodes);      
 } 
 </script>
