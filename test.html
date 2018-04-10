@@ -4,29 +4,8 @@
 <head>
 <!-- 前面有加上. 需要用.attr("class","")呼叫 -->
 	<title> This is testing of network  </title>
-<style>
-.links line {
-  stroke: #999;
-  stroke-opacity: 0.6;
-}
-.links.O{
-  stroke-dasharry:"10, 5 1"
-}
-.nodes circle {
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-.arrow{
-  stroke: #999;
-}
-text {
-  font: 10px sans-serif;
-  pointer-events: none;
-  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
-}
-</style>
 
-
+<link rel="stylesheet" href = "style_test.css" >
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
 
@@ -65,7 +44,8 @@ var container = svg.append("g")
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
   
-  var link = container.append("g")
+ //聯結設定
+  /*var link = container.append("g")
       .attr("class", "links")
     .selectAll("line")
     .data(graph.links)
@@ -74,22 +54,40 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  .style("stroke-dasharray", linkDash);
 	  //.style("stroke", linkColour);  //可透過此行控制不同交易類型links顏色
 	  
-  link.append("title")
-    .text(function(d) { return d.source + " --> " + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
+  link.append('title')
+    .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
+  */
+ 
   
-  var path = container.append("g")
-    .selectAll("path")
+  var path = container.append("g").selectAll("path")
     .data(graph.links)
 	.enter().append("path")
-	  .attr('marker-end', "url(#arrowhead)")
-	  .attr("stroke","green")
+	  .attr('marker-end',  "url(#arrowhead)")
+	  .attr("stroke","gray")
 	  .attr("fill","none")
-	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); });
+	  .attr("stroke-width", function(d) { return Math.sqrt(d.value1); })
+	    .style("stroke-dasharray", linkDash);
 	  
   path.append('title')
-    .text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
-  
-  
+    .attr("class","title")
+	.text(function(d) { return d.source + "->" + d.target + "\n" + "value1: " + d.value1 + "\n" + "value2: " + d.value2 ;});  //浮動說明
+  //箭頭設定
+	container.append("defs").append("marker")
+	  .attr("id","arrowhead")
+	  .attr("refX",5)
+	  .attr("refY",0)
+      .attr("viewBox","-0, -5, 960,600")
+      .attr("markerWidth",25)
+      .attr("markerHeight",25)
+      .attr("orient","auto")
+	.append("container:path")
+	  .attr("d", "M 0,-5 L 10 ,0 L 0,5")
+	  .attr('fill', '#999')
+      .style('stroke','green')	
+	
+	
+	
+ // 節點設定 
   var node = container.append("g")
       .attr("class", "nodes")
     .selectAll("circle")
@@ -97,6 +95,7 @@ d3.json("testingNetwork.json", function(error, graph) {
     .enter().append("circle")
       .attr("r", function(d) { return d.sizeNode ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
+	  .on("click", onclickFunction)
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -105,36 +104,53 @@ d3.json("testingNetwork.json", function(error, graph) {
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
 		.attr("font-size","36px");
-  
+		
+ //節點標示
+  var nodeText = container.append("g")
+      .selectAll("text")
+	  .data(graph.nodes)
+	  .enter().append("text")
+	    .text(function(d) {return d.id;});
+		
+ 
   simulation
       .nodes(graph.nodes)
       .on("tick", ticked);
-	  
   simulation.force("link")
-      .links(graph.links);
-	  
+      .links(graph.links);    //呼叫simulation.force "link"的定義及.links函數；graph.links資料來源
   function ticked() {
-    link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+    path
+	    .attr("d", linkArc);
+	
     node
         .attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
 	
-	path
-	    .attr("d", linkArc);
+	nodeText
+	    .attr("x", function(d) { return d.x; })
+		.attr("y", function(d) { return d.y; })
+		.attr("stroke", "black");
 		
   }
   
 svg.call(zoom)
 });
+// Highlight 技巧
+//thisNode = nodeObject; // where nodeObject is the javascript object for the node, it's probably called "d" in your function.
+d3.selectAll(".link")
+  .style("stroke",function(d) {
+     return d.source === thisNode || d.target === thisNode ? "red" : "#888888";
+});
+function onclickFunction (d){
+  var circle = d3.select(this);
+  node
+   .attr("fill", "black")
+}
 function linkArc(d){
   var  dx = d.target.x - d.source.x,
        dy = d.target.y - d.source.y,
 	   dr = Math.sqrt(dx * dx + dy * dy);
-  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0, 1 " + d.target.x + "," + d.target.y ;
+  return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0, 1 " + d.target.x + "," + d.target.y;
 }
 function linkColour(d){  // 控制links 色彩
   if (d.type1 == "I"){
@@ -166,4 +182,5 @@ function zoomed() {
    d3.select("svg").select("g")
    .attr("transform",d3.event.transform);
  }
+ 
 </script>
