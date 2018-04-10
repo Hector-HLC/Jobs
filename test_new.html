@@ -40,6 +40,8 @@ var simulation = d3.forceSimulation()
     .force('collision', d3.forceCollide().radius(function(d){ return d.sizeNode*3 ;}));      //數值越大，差距越大（未來可以利用中心性等變數去調整）
 var container = svg.append("g")
      .call(zoom);
+
+var NODES = graph.nodes;
 	 
 //設定選單
 
@@ -52,7 +54,7 @@ var select = d3.select("body")
           doReset();
           return;
         }
-        var find = flatten(graph.nodes).find(function(d) {
+        var find = flatten(NODES).find(function(d) {
           if (d.name == select)
             return true;
         });
@@ -219,7 +221,7 @@ function zoomed() {
    .attr("transform",d3.event.transform);
  }
  
-function flatten(node) {
+function flatten(NODES) {
   var nodes = [],
         i = 0;
   function recurse(node) {
@@ -228,14 +230,14 @@ function flatten(node) {
         if (!node.id) node.id = ++i;
         nodes.push(node);
   }
-      recurse(node);
+      recurse(NODES);
       return nodes;
 }
 
 function doReset(){
-        flatten(graph.nodes).forEach(function(d) {
+        flatten(NODES).forEach(function(d) {
           d.color = undefined;
         })
-        update(graph.nodes);      
+        update(NODES);      
 } 
 </script>
