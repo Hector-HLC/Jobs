@@ -138,7 +138,7 @@ d3.json("testingNetwork.json", function(error, graph) {
       select.append("option")
         .attr("value", d.name)
         .text(d.name);
-    })
+    });
 		
  //節點標示
   var nodeText = container.append("g")
