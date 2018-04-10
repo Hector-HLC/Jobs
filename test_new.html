@@ -90,6 +90,13 @@ var container = svg.append("g")
       .attr("selected", "true")
       .text("Select");
 	
+	node.forEach(function(d) {
+      select.append("option")
+        .attr("value", d.name)
+        .text(d.name);
+
+    });
+	
 d3.json("testingNetwork.json", function(error, graph) {
   if (error) throw error;
   
