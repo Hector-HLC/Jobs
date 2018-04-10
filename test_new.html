@@ -219,16 +219,16 @@ function zoomed() {
    .attr("transform",d3.event.transform);
  }
  
-function flatten(graph.nodes) {
+function flatten(node) {
   var nodes = [],
         i = 0;
-  function recurse(graph.nodes) {
-        if (graph.nodes.children) graph.nodes.children.forEach(recurse);
-        if (graph.nodes._children) graph.nodes._children.forEach(recurse);
-        if (!graph.nodes.id) graph.nodes.id = ++i;
-        nodes.push(graph.nodes);
+  function recurse(node) {
+        if (node.children) node.children.forEach(recurse);
+        if (node._children) node._children.forEach(recurse);
+        if (!node.id) node.id = ++i;
+        nodes.push(node);
   }
-      recurse(graph.nodes);
+      recurse(node);
       return nodes;
 }
 
