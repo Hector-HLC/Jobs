@@ -134,6 +134,33 @@ d3.json("testingNetwork.json", function(error, graph) {
 		.attr("stroke", "black");
 		
   }
+   
+function neighboring(a, b) {  // 決定鄰近節點
+    return linkedByIndex[a.index + "," + b.index];
+}
+
+function connectedNodes() {  // 控制連結節點 K 階
+
+    if (toggle == 0) {
+
+        d = d3.select(this).node().__data__;
+        node.style("opacity", function (o) {
+            return neighboring(d, o) | neighboring(o, d) ? 1 : 0.15;
+        });
+        toggle = 1;
+    } else {
+        node.style("opacity", 1);;
+        toggle = 0;
+    }
+	var linkedByIndex = {};
+for (i = 0; i < node.length; i++) {
+    linkedByIndex[i + "," + i] = 1;
+};
+    path.forEach(function (d) {
+    linkedByIndex[d.source.index + "," + d.target.index] = 1;
+});
+
+}
   
 svg.call(zoom)
 });
@@ -148,16 +175,10 @@ function onclickFunction (d){
   var circle = d3.select(this);
   node
    .attr("fill", "black")
+   
 }
 */
 
-var linkedByIndex = {};
-for (i = 0; i < node.length; i++) {
-    linkedByIndex[i + "," + i] = 1;
-};
-    path.forEach(function (d) {
-    linkedByIndex[d.source.index + "," + d.target.index] = 1;
-});
 
 function linkArc(d){
   var  dx = d.target.x - d.source.x,
