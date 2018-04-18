@@ -95,11 +95,11 @@ d3.json("testingNetwork.json", function(error, graph) {
     .enter().append("circle")
       .attr("r", function(d) { return d.sizeNode ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
-	  .on('dblclick', connectedNodes)
-      .call(d3.drag()
+	  .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
-          .on("end", dragended));
+          .on("end", dragended))
+	   .on("dblclick", connectedNodes);
 	  
   node.append("title")
       .text(function(d) { return "Name: " + d.id + "\n" + "Job: " + d.title + "\n" + "Frequency: " + d.sizeNode + "Time/Week"; })  // 浮動說明
