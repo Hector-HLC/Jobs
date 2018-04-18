@@ -95,7 +95,7 @@ d3.json("testingNetwork.json", function(error, graph) {
     .enter().append("circle")
       .attr("r", function(d) { return d.sizeNode ;})   //the radius
       .attr("fill", function(d) { return color(d.group); })
-	  .on("click", onclickFunction)
+	  .on('dblclick', connectedNodes)
       .call(d3.drag()
           .on("start", dragstarted)
           .on("drag", dragged)
@@ -152,10 +152,10 @@ function onclickFunction (d){
 */
 
 var linkedByIndex = {};
-for (i = 0; i < graph.nodes.length; i++) {
+for (i = 0; i < node.length; i++) {
     linkedByIndex[i + "," + i] = 1;
 };
-graph.links.forEach(function (d) {
+    path.forEach(function (d) {
     linkedByIndex[d.source.index + "," + d.target.index] = 1;
 });
 
