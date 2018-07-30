@@ -128,6 +128,15 @@ d3.json("testingNetwork.json", function(error, graph) {
 	  
   simulation.force("link")
       .links(graph.links);    //呼叫simulation.force "link"的定義及.links函數；graph.links資料來源
+	  
+//連結節點
+var linkedByIndex = {};
+for (i = 0; i < node.length; i++) {
+    linkedByIndex[i + "," + i] = 1;
+};
+    path.forEach(function (d) {
+    linkedByIndex[d.source.index + "," + d.target.index] = 1;
+});
   function ticked() {
     path
 	    .attr("d", linkArc);
@@ -143,9 +152,7 @@ d3.json("testingNetwork.json", function(error, graph) {
 		
   }
    
-function neighboring(a, b) {  // 決定鄰近節點
-    return linkedByIndex[a.index + "," + b.index];
-}
+
 
 function connectedNodes() {  // 控制連結節點 K 階
 
@@ -160,13 +167,18 @@ function connectedNodes() {  // 控制連結節點 K 階
         node.style("opacity", 1);;
         toggle = 0;
     }
-	var linkedByIndex = {};
+
+var linkedByIndex = {};
 for (i = 0; i < node.length; i++) {
     linkedByIndex[i + "," + i] = 1;
 };
     path.forEach(function (d) {
     linkedByIndex[d.source.index + "," + d.target.index] = 1;
 });
+function neighboring(a, b) {  // 決定鄰近節點
+    return linkedByIndex[a.index + "," + b.index];
+}
+
 
 }
   
